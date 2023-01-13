@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <title>Created by Gilad Meirson</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@800&display=swap" rel="stylesheet">
         <style>
@@ -62,10 +63,39 @@ button {
         color: beige;
 
     }
+    .imgPH{
+        position: absolute;
+        width:224px;
+        height: 224px;
+       bottom: 15vh;
+       left: 30vw;
+       display: none;
+
+    }
+    .imgPH p{
+        color: aliceblue;
+        text-align: center;
+    }
+    img{
+        width:224px;
+        height: 224px;
+    }
     </style>
         <script src="index.js"></script>
     </head>
     <body onload="init(this)">
+        <div class="imgPH" id="imgdivAvocado">
+            <img src="img/Avocado589.jpg" alt="">
+            <p>True-Lable: Avocado</p>
+        </div>
+        <div class="imgPH" id="imgdivTomato">
+            <img src="img/Tomato549.jpg" alt="">
+            <p>True-Lable: Tomato</p>
+        </div>
+        <div class="imgPH" id="imgdivLantana">
+            <img src="img/Lantana601.jpg" alt="">
+            <p>True-Lable: Lantana</p>
+        </div>
         <button onclick="IsClick()">Start simulate</button>
         <canvas id="Can"></canvas>
 
