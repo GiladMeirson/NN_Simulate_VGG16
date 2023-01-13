@@ -56,42 +56,8 @@ const conecttorsColorArray = [
 
 ];
 
-
-function init(body) {
-    
-  can = document.getElementById("Can");
-  ctx = can.getContext("2d");
-  // amount=Math.floor(innerWidth/4.8);
-  can.width = innerWidth;
-  can.height = innerHeight;
-  window.addEventListener("resize", resizeCanvas);
-  // window.addEventListener("mousemove", function (e) {
-  //   mouse.x = e.x;
-  //   mouse.y = e.y;
-  // });
-
-//   window.addEventListener("contextmenu", (e) => {e.preventDefault();AddSome();});
-//   window.addEventListener('mousedown',()=>{mouse.radius=innerWidth/7.7;mouse.power=innerWidth/147.7});
-//   window.addEventListener('mouseup',()=>{mouse.radius=innerWidth/25.6;mouse.power=innerWidth/1280});
-//   window.addEventListener('keydown',(e)=>{
-//     if (e.key==='d') {
-//     for (let i = 0; i < 5; i++) {
-//         particleArray.pop();
-//     }
-
-    
-//   }
-//   if (e.key==='=') {
-//     disLimitCon++;
-//     //console.log(e.key,disLimitCon)
-//   }
-//   if (e.key==='-') {
-//     disLimitCon--;
-//   }
-
-
-// });
-let ajustY=300
+function CreateNet() {
+  let ajustY=300
 
 
 
@@ -197,29 +163,48 @@ let ajustY=300
 
   CreateLayer(2000,195+ajustY,6,3,'rgba(245,200,30,0.7)',14);
 
-  
+}
+function init(body) {
+    
+  can = document.getElementById("Can");
+  ctx = can.getContext("2d");
+  // amount=Math.floor(innerWidth/4.8);
+  can.width = innerWidth;
+  can.height = innerHeight;
+  window.addEventListener("resize", resizeCanvas);
+  // window.addEventListener("mousemove", function (e) {
+  //   mouse.x = e.x;
+  //   mouse.y = e.y;
+  // });
+
+//   window.addEventListener("contextmenu", (e) => {e.preventDefault();AddSome();});
+//   window.addEventListener('mousedown',()=>{mouse.radius=innerWidth/7.7;mouse.power=innerWidth/147.7});
+//   window.addEventListener('mouseup',()=>{mouse.radius=innerWidth/25.6;mouse.power=innerWidth/1280});
+//   window.addEventListener('keydown',(e)=>{
+//     if (e.key==='d') {
+//     for (let i = 0; i < 5; i++) {
+//         particleArray.pop();
+//     }
+
+    
+//   }
+//   if (e.key==='=') {
+//     disLimitCon++;
+//     //console.log(e.key,disLimitCon)
+//   }
+//   if (e.key==='-') {
+//     disLimitCon--;
+//   }
+
+
+// });
+
+  CreateNet();
   Animate();
 
   
 }
-// function Start(btn) {
-//     btn.parentNode.remove();
-//     requestFullScreen(document.body)
-// }
-/* Get into full screen */
-// function requestFullScreen(element) {
-//     // Supports most browsers and their versions.
-//     var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
 
-//     if (requestMethod) { // Native full screen.
-//         requestMethod.call(element);
-//     } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-//         var wscript = new ActiveXObject("WScript.Shell");
-//         if (wscript !== null) {
-//             wscript.SendKeys("{F11}");
-//         }
-//     }
-// }
 
 function resizeCanvas() {
   particleArray = [];
@@ -227,6 +212,7 @@ function resizeCanvas() {
   can.height = window.innerHeight;
   cancelAnimationFrame(animation);
   //CreateParticle(10);
+  CreateNet();
   Animate();
 }
 
@@ -427,9 +413,23 @@ function Sim(layer) {
 
 function IsClick(btn) {
   if (toggle==false) {
-    toggle=true;
+    
+    
+    animationImg1('#imgdivAvocado');
+    setTimeout(animationImg1,5200,'#imgdivTomato');
+    setTimeout(animationImg1,10400,'#imgdivLantana');
+    
   }
   else{
     toggle=false;
   }
+}
+
+
+function animationImg1(id) {
+  $(id).fadeIn(500);
+  setTimeout(()=>{$(id).animate({top:'10px', left:'20px',width:'0px', height:'0px',opacity:'0'},3000);},1500)
+  
+  setTimeout(()=>{toggle=true;},3250)
+ 
 }
